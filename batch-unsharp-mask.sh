@@ -8,7 +8,7 @@ if [ $# -lt 1 ]
 then
     ARGS='*.jpg'
 else 
-    ARGS="$@"
+    ARGS="$*"
 fi
-echo Adjusting/Converting ${ARGS}
+echo Adjusting/Converting "${ARGS}"
 gimp -i --batch-interpreter='plug-in-script-fu-eval' -b "(batch-unsharp-mask \"${ARGS}\" 5.0 0.5 0)(gimp-quit 0)"
